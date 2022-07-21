@@ -30,7 +30,7 @@ namespace FairwindsCMS.Domain.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [MinLength(9, ErrorMessage ="SSN must be 9 characters.")]
+        [StringLength(9, MinimumLength =9, ErrorMessage ="SSN must be 9 characters.")]
         [JsonProperty("ssn")]
         public string? Ssn { get; set; }
 
