@@ -1,0 +1,14 @@
+﻿@model FairwindsCMS.Domain.Models.PrimaryAddress
+
+<div class="row">
+    <div class="col-12">
+        <h4>Primary Address</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        @Html.DisplayFor(model => model.AddressLine1)
+        <br />
+        @Html.DisplayFor(model => model.City)&nbsp;, @Html.DisplayFor(model => model.State)&nbsp;        @Html.DisplayFor(model => model.ZipCode)
+    </div>
+</div>

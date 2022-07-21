@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Fairwinds CMS</h1>
+    <small>Manage Fairwinds Customers</small>
+</div>
+<hr />
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="d-inline">
+                    All Customers
+                </h2>
+                <a class="btn btn-outline-primary d-inline" asp-action="AllCustomers" asp-controller="Customer">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+            <div class="card-body">Offers all customers, including their demographic and contact information.</div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="d-inline">
+                    Create a Customer
+                </h2>
+                <a class="btn btn-outline-primary d-inline" asp-action="Create" asp-controller="Customer">
+                    <i class="bi bi-person-plus"></i>
+                </a>
+            </div>
+            <div class="card-body">Allows creating a new customer in the Fairwinds CMS.</div>
+        </div>
+    </div>
+</div>

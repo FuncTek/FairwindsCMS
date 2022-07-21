@@ -1,0 +1,111 @@
+﻿@model IEnumerable<FairwindsCMS.Domain.Models.Customer>
+
+@{
+    ViewData["Title"] = "All Customers";
+}
+<h1 class="d-inline">All Customers</h1>
+<a class="btn btn-outline-primary d-inline" asp-action="Create" asp-controller="Customer" title="Create a Customer"><i class="bi bi-person-plus"></i></a>
+<hr />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ssn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a role="button" tabindex="0" class="btn btn-outline-primary btnModal" data-bs-toggle="modal" data-bs-target="#customerModal">
+                        @Html.DisplayFor(modelItem => item.CustomerNumber)
+                    </a>
+                    <div class="modal-content" data-modal="@item.CustomerNumber" hidden>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Email</h4>
+                            </div>
+                            <div class="col-4">
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </div>
+                        </div>
+                        @await Html.PartialAsync("_ExtraCustomerData", item.PrimaryAddress)
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>
+                                    @Html.DisplayNameFor(modelItem => item.MobilePhoneNumber)
+                                </h4>
+                            </div>
+                            <div class="col-4">
+                                @Html.DisplayFor(modelItem => item.MobilePhoneNumber)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>
+                                    @Html.DisplayNameFor(model => model.JoinDate)
+                                </h4>
+                            </div>
+                            <div class="col-4">
+                                @Html.DisplayFor(modelItem => item.JoinDate)
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ssn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Demographics</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/js/allcustomer.js"></script>
+}
+
